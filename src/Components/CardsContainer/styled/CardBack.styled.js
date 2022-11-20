@@ -7,9 +7,18 @@ const CardBack = styled.div`
   /* width: 100%; */
 
   transform: translateX(50%);
+  @media screen and (max-width: 750px) {
+    position: absolute;
+    z-index: 0;
+    transform: translateX(25%);
+  }
+  @media screen and (max-width: 500px) {
+    transform: translateX(10%);
+  }
   & .card__content {
     position: relative;
-    height: 100%;
+    /* height: 100%; */
+    /* width: 100%; */
 
     & .cvc {
       font-size: 1.4rem;

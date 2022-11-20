@@ -6,6 +6,11 @@ const CardFront = styled.div`
 
   transform: translateX(30%);
 
+  @media screen and (max-width: 750px) {
+    z-index: 1;
+    transform: translateY(12rem);
+  }
+
   & .card__content {
     height: 100%;
     width: 100%;
