@@ -12,12 +12,12 @@ const CardsContainerWrapper = styled.section`
   align-items: center;
   flex-basis: 30vw;
   flex-shrink: 0;
-  /* flex-grow: 1; */
 
   @media screen and (max-width: 750px) {
     width: 100%;
     background-size: 100%;
     height: 35rem;
+    flex-grow: 1;
   }
 `;
 
