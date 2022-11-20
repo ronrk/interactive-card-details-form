@@ -3,7 +3,7 @@ import useInput from "../../hooks/useInput";
 
 import Wrapper from "./styled/Form.styled";
 
-const Form = () => {
+const Form = ({ handleChange }) => {
   // const { clientName } = values;
 
   const [error, setError] = useState(false);
@@ -75,7 +75,6 @@ const Form = () => {
       !isNaN(Number(cardCVC)) &&
       isNaN(Number(clientName))
     ) {
-      console.log("1: all numbers");
       if (
         nameIsValid &&
         numberIsValid &&
@@ -83,7 +82,6 @@ const Form = () => {
         yearIsValid &&
         CVCIsValid
       ) {
-        console.log("2: all valid");
         // success
         nameReset();
         numberReset();
@@ -93,9 +91,8 @@ const Form = () => {
         setFullfiled(true);
         return;
       }
-      console.log("3: some value not valid");
     }
-    console.log("one is not a number");
+
     setError(true);
     return;
   };
@@ -119,13 +116,19 @@ const Form = () => {
         <div className="form-control">
           <label htmlFor="name">cardholder name</label>
           <input
-            onChange={nameChange}
+            onChange={(e) => {
+              nameChange(e);
+              handleChange(e.target.name, e.target.value);
+            }}
             value={clientName}
             type="text"
             id="name"
             name="clientName"
             placeholder="e.g Jabe Appleseed"
-            onBlur={nameBlur}
+            onBlur={(e) => {
+              nameBlur(e);
+              handleChange(e.target.name, e.target.value);
+            }}
             className={nameHasError ? "error" : null}
           />
           <span className="input__error">Can't be blank</span>
@@ -133,7 +136,10 @@ const Form = () => {
         <div className="form-control">
           <label htmlFor="number">card number</label>
           <input
-            onChange={numberChange}
+            onChange={(e) => {
+              numberChange(e);
+              handleChange(e.target.name, e.target.value);
+            }}
             onBlur={numberBlur}
             type="text"
             id="number"
@@ -151,7 +157,10 @@ const Form = () => {
             <div className="date-inputs-container">
               <input
                 className={monthHasError ? "error" : null}
-                onChange={monthChange}
+                onChange={(e) => {
+                  monthChange(e);
+                  handleChange(e.target.name, e.target.value);
+                }}
                 onBlur={monthBlur}
                 type="text"
                 id="date"
@@ -162,7 +171,10 @@ const Form = () => {
               />
               <input
                 className={yearHasError ? "error" : null}
-                onChange={yearChange}
+                onChange={(e) => {
+                  yearChange(e);
+                  handleChange(e.target.name, e.target.value);
+                }}
                 onBlur={yearBlur}
                 type="text"
                 id="date"
@@ -179,7 +191,10 @@ const Form = () => {
             <label htmlFor="cardCVC">cvc</label>
             <input
               className={CVCHasError ? "error" : null}
-              onChange={CVCChange}
+              onChange={(e) => {
+                CVCChange(e);
+                handleChange(e.target.name, e.target.value);
+              }}
               onBlur={CVCBlur}
               type="text"
               id="cardCVC"

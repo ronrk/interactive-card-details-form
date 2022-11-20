@@ -4,6 +4,7 @@ import bg from "../../../assets/images/bg-main-desktop.png";
 const CardsContainerWrapper = styled.section`
   background-image: url(${bg});
   background-repeat: no-repeat;
+  background-size: 300%;
   /* height: 100vh; */
   display: flex;
   gap: 3rem;
@@ -17,7 +18,7 @@ const CardsContainerWrapper = styled.section`
     width: 100%;
     background-size: 100%;
     height: 35rem;
-    flex-grow: 1;
+    flex-grow: 0.4;
   }
 `;
 

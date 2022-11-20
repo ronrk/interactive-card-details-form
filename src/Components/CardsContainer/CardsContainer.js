@@ -3,11 +3,19 @@ import Wrapper from "./styled/CardsContainer.styled";
 import CardFront from "./CardFront";
 import CardBack from "./CardBack";
 
-const CardsContainer = () => {
+const CardsContainer = ({
+  clientName,
+  cardNumber,
+  cardMonth,
+  cardYear,
+  cardCVC,
+}) => {
   return (
     <Wrapper>
-      <CardFront />
-      <CardBack />
+      <CardFront
+        values={{ clientName, cardMonth, cardCVC, cardYear, cardNumber }}
+      />
+      <CardBack cardCVC={cardCVC} />
     </Wrapper>
   );
 };
